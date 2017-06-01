@@ -1,0 +1,21 @@
+---
+driver:
+  name: docker
+  use_sudo: false
+
+provisioner:
+  name: ansible_playbook
+  hosts: node1
+  ansible_verbose: true
+  ansible_verbosity: 2
+  ansible_connection: ssh
+
+platforms:
+  - name: ubuntu-14.04
+
+suites:
+  - name: default
+    provisioner:
+      playbook: test/integration/default/default.yml
+    run_list:
+    attributes:

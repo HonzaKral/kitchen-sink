@@ -1,0 +1,10 @@
+---
+- hosts: node1
+  tasks:
+      - name: testing that tasks are run
+        pause: seconds=3
+
+- hosts: node1
+  roles:
+    - role: test
+  vars:

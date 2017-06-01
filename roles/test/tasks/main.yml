@@ -1,0 +1,3 @@
+---
+- name: this is a loose task
+  shell: echo 'Hello world' > /tmp/testing
