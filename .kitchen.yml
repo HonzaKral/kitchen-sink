@@ -1,7 +1,6 @@
 ---
 driver:
   name: docker
-  use_sudo: false
 
 provisioner:
   name: ansible_playbook
@@ -9,9 +8,16 @@ provisioner:
   ansible_verbose: true
   ansible_verbosity: 2
   ansible_connection: ssh
+  requirements_path: requirements.yaml
 
 platforms:
   - name: ubuntu-14.04
+    driver_config:
+      image: dliappis/ubuntu-devopsci:14.04
+      privileged: true
+      provision_command:
+        - mkdir -p /home/kitchen/.ansible/tmp && chmod 777 /home/kitchen/.ansible/tmp
+      use_sudo: false
 
 suites:
   - name: default

@@ -7,4 +7,8 @@
 - hosts: node1
   roles:
     - role: test
+    - role: elastic.elasticsearch
+      es_instance_name: node1
+      es_config:
+        node.name: node1
   vars:
